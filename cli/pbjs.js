@@ -262,7 +262,13 @@ pbjs.main = function(argv) {
     if (!options.quiet)
         cli.error("\nProcessing: "+sourceFiles.join(", ")+" ...\n");
     var res = pbjs.targets[options.target](builder, options);
-    process.stdout.write(res);
+	
+	if (typeof options.out !== 'undefined') {
+        fs.writeFileSync(options.out, res);
+    } else {
+        process.stdout.write(res);
+    }
+	
     if (!options.quiet)
         cli.error(""),
         cli.ok("Converted "+sourceFiles.length+" source files to "+options.target+" ("+res.length+" bytes, "+(Date.now()-start)+" ms)");
