@@ -118,7 +118,7 @@ function mkOptions(obj) {
  */
 pbjs.main = function(argv) {
     var options = yargs
-        .usage(cli("pb as".white.bold+"js".green.bold, util.pad("ProtoBuf.js v"+pkg['version'], 31, true)+" "+pkg['homepage'].grey) + "\n" +
+        .usage(cli("pb".white.bold+"js".green.bold, util.pad("ProtoBuf.js v"+pkg['version'], 31, true)+" "+pkg['homepage'].grey) + "\n" +
                     "CLI utility to convert between .proto and JSON syntax / to generate classes.\n\n" +
                     "Usage: ".white.bold+path.basename(argv[1]).green.bold+" <source files...> [options] [> outFile]")
         .help("help")
